@@ -2,16 +2,18 @@ package com.khjxiaogu.EventDebuger;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
-import java.net.http.WebSocket.Listener;
 
+import org.bukkit.event.Event;
+import org.bukkit.event.Listener;
 import org.bukkit.plugin.EventExecutor;
 import org.w3c.dom.events.EventException;
 
-public class Logger implements EventExecutor, Listener {
+public class Logger implements EventExecutor {
 
 	public Logger() {
 	}
 
+	@Override
 	public void execute(Listener listener, Event event) throws EventException {
 		if (event != null) {
 			StringBuilder sb = new StringBuilder(event.getEventName());
