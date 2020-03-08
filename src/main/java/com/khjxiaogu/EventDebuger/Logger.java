@@ -2,11 +2,10 @@ package com.khjxiaogu.EventDebuger;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
+import java.net.http.WebSocket.Listener;
 
-import org.bukkit.event.Event;
-import org.bukkit.event.EventException;
-import org.bukkit.event.Listener;
 import org.bukkit.plugin.EventExecutor;
+import org.w3c.dom.events.EventException;
 
 public class Logger implements EventExecutor, Listener {
 
@@ -26,9 +25,10 @@ public class Logger implements EventExecutor, Listener {
 						try {
 							if (nfirst) {
 								sb.append(",");
-							} else
+							} else {
 								nfirst = true;
-							sb.append((String.format("%s=%s", f.getName(), f.get(event).toString())));
+							}
+							sb.append(String.format("%s=%s", f.getName(), f.get(event).toString()));
 						} catch (IllegalArgumentException e) {
 						} catch (IllegalAccessException e) {
 						}
