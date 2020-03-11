@@ -30,7 +30,7 @@ public class Logger implements EventExecutor {
 							} else {
 								nfirst = true;
 							}
-							sb.append(String.format("%s=%s", f.getName(), f.get(event).toString()));
+							sb.append(String.format("%s=%s", f.getName(), String.format("%s",f.get(event))));
 						} catch (IllegalArgumentException e) {
 						} catch (IllegalAccessException e) {
 						}
