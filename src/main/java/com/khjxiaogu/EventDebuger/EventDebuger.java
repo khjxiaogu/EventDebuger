@@ -35,10 +35,10 @@ public class EventDebuger extends JavaPlugin {
 			
 		}
 		for (Class<? extends Event> ev : allevents) {
-			Logger log = new Logger();
+			Logger handler = new Logger();
 			try {
 				Bukkit.getPluginManager().registerEvent(ev, new Listener() {
-				}, EventPriority.MONITOR, log, EventDebuger.plugin);
+				}, EventPriority.MONITOR, handler, EventDebuger.plugin);
 			} catch (Throwable t) {
 				getLogger().warning("Event " + ev.getName() + "register failed!");
 			}
